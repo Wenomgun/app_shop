@@ -5,14 +5,18 @@ import {MainPageComponent} from "./main-page/main-page.component";
 import {ProductPageComponent} from "./product-page/product-page.component";
 import {BasketPageComponent} from "./basket-page/basket-page.component";
 
-const routes: Routes = [{
-  path: '', component: MainLayoutComponent, children: [
-    {path: '', redirectTo: '/', pathMatch: 'full'},
-    {path: '', component: MainPageComponent},
-    {path: 'product/:id', component: ProductPageComponent},
-    {path: 'basket', component: BasketPageComponent},
-  ]
-}];
+const routes: Routes = [
+  {
+    path: '', component: MainLayoutComponent, children: [
+      {path: '', redirectTo: '/', pathMatch: 'full'},
+      {path: '', component: MainPageComponent},
+      {path: 'product/:id', component: ProductPageComponent},
+      {path: 'basket', component: BasketPageComponent},
+    ]
+  },
+  {
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule)
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
