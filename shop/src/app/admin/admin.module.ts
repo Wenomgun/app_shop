@@ -7,8 +7,7 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
-
-
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,7 +31,8 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
           {path: 'orders', component: OrdersPageComponent}
         ]
       }
-    ])
+    ]),
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
