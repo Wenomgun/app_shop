@@ -10,3 +10,16 @@ export interface IResponseObj {
   idToken: string;
   expiresIn :string;
 }
+
+export interface IProduct {
+  type: string;
+  name: string;
+  photo: string;
+  description: string;
+  price: string;
+  date: Date;
+}
+
+export interface IProductResponse {
+  name: string;
+}
