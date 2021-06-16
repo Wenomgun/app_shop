@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { BasketPageComponent } from './basket-page/basket-page.component';
-import {MainLayoutComponent} from './shared/main-layout/main-layout.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
