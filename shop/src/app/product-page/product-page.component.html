@@ -1,1 +1,33 @@
-<p>product-page works!</p>
+<div *ngIf="product$ | async as product; else loading">
+  <div class="product">
+    <div class="header right">
+      <button routerLink="/" class="btn btn-default">Назад</button>
+    </div>
+    <div class="flex">
+      <div class="item text-center">
+        <h2>{{ product.name }}</h2>
+        <div class="flex-center">
+          <quill-view-html [content]="product.photo"></quill-view-html>
+        </div>
+        <div>
+          <h2>Цена: {{product.price}}</h2>
+          <button routerLink="/basket" class="btn btn-default">Добавить в корзину</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <h2>Описание</h2>
+
+        <div>
+          <quill-view-html [content]="product.description"></quill-view-html>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>
+    Loading
+  </div>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h3>{{ product?.name }}</h3>
+
+  <div class="flex-center">
+    <quill-view-html class="photo" [content]="product?.photo || ''"></quill-view-html>
+  </div>
+
+  <h2>Цена: {{product?.price}}</h2>
+
+  <button class="btn btn-default btn-product" [routerLink]="['/product', product?.id]">Посмотреть</button>
+
+  <button class="btn btn-default btn-product" [routerLink]="['/basket']">Добавить в корзину</button>
+</div>

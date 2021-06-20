@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../shared/product.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-main-page',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.less']
 })
 export class MainPageComponent implements OnInit {
-
-  constructor() { }
+  products$: Observable<any> | undefined;
+  constructor(private prodService: ProductService) {
+    this.products$ = this.prodService.query();
+  }
 
   ngOnInit(): void {
+
   }
 
 }
