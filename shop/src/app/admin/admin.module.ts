@@ -7,10 +7,11 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthGuard} from "../shared/auth.guard";
 import {QuillModule} from "ngx-quill";
 import {HttpClientModule} from "@angular/common/http";
+import {SearchPipe} from "../shared/search.pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
     AddPageComponent,
     DashboardComponent,
     EditPageComponent,
-    OrdersPageComponent
+    OrdersPageComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import {HttpClientModule} from "@angular/common/http";
     ]),
     ReactiveFormsModule,
     QuillModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

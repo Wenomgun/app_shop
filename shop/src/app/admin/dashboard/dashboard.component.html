@@ -1,5 +1,9 @@
 <div *ngIf="products.length; else loading">
   <h2 class="text-center">Dashboard</h2>
+
+  <div>
+    <input type="text" class="" placeholder="Поиск" [(ngModel)]="productName">
+  </div>
   <table>
     <thead>
       <tr>
@@ -13,7 +17,7 @@
     </thead>
 
     <tbody>
-    <tr *ngFor="let product of products; let i = index">
+    <tr *ngFor="let product of products | search: productName ; let i = index">
       <td>{{i + 1}}</td>
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
