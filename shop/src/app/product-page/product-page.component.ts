@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../shared/product.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {IProduct} from "../shared/const";
@@ -16,7 +16,7 @@ export class ProductPageComponent implements OnInit {
     private prodService: ProductService,
     private router: ActivatedRoute) {
     this.product$ = this.router.params
-      .pipe(switchMap((params) => {
+      .pipe(switchMap((params: Params) => {
         return this.prodService.getById(params['id'])
       }))
   }

@@ -30,7 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
           {path: 'add', component: AddPageComponent, canActivate: [AuthGuard]},
-          {path: 'products/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
+          {path: 'product/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
           {path: 'orders', component: OrdersPageComponent, canActivate: [AuthGuard]}
         ]
       }

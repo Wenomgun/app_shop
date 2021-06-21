@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {IProduct, IProductResponse} from "./const";
+import {IProduct, IProduct2, IProductResponse} from "./const";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 
@@ -48,5 +48,13 @@ export class ProductService {
           date: new Date(res.date)
         }
       }))
+  }
+
+  removeById(id: string): Observable<any> {
+    return this.http.delete(`${environment.db_url}/products/${id}.json`);
+  }
+
+  update(product: IProduct2): Observable<any> {
+    return this.http.patch(`${environment.db_url}/products/${product.id}.json`, product);
   }
 }

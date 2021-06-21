@@ -1,1 +1,56 @@
-<p>edit-page works!</p>
+<div *ngIf="form; else loading">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>
+      Edit product
+    </h2>
+
+    <div class="form-control">
+      <label for="type">Тип</label>
+
+      <select id="type" formControlName="type">
+        <option></option>
+        <option value="phone">Телефон</option>
+        <option value="tablet">Планшет</option>
+        <option value="laptop">Ноутбук</option>
+      </select>
+
+      <div *ngIf="type?.touched && type?.invalid" class="validation">
+        <small *ngIf="type?.errors?.required">Выберите тип товара</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="name">Наименование</label>
+      <input id="name" type="text" formControlName="name">
+      <div *ngIf="name?.touched && name?.invalid" class="validation">
+        <small *ngIf="name?.errors?.required">Введите наименование товара</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="photo">Фото</label>
+      <quill-editor id="photo" formControlName="photo"></quill-editor>
+    </div>
+
+    <div class="form-control">
+      <label for="description">Описание</label>
+      <quill-editor id="description" formControlName="description"></quill-editor>
+    </div>
+
+    <div class="form-control">
+      <label for="price">Цена</label>
+      <input id="price" type="number" formControlName="price">
+      <div *ngIf="price?.touched && price?.invalid" class="validation">
+        <small *ngIf="price?.errors?.required">Введите цену товара</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid">Сохранить</button>
+  </form>
+</div>
+
+<ng-template #loading>
+  <div class="text-center">
+    Loading
+  </div>
+</ng-template>

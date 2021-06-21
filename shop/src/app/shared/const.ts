@@ -20,6 +20,16 @@ export interface IProduct {
   date: Date;
 }
 
+export interface IProduct2 {
+  id: string;
+  type: string;
+  name: string;
+  photo: string;
+  description: string;
+  price: string;
+  date: Date;
+}
+
 export interface IProductResponse {
   name: string;
 }
