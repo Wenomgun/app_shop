@@ -9,6 +9,7 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ProductService {
+  type: string = 'phone';
   urlProducts: string = `${environment.db_url}/products.json`;
   constructor(private http: HttpClient) { }
 
@@ -56,5 +57,9 @@ export class ProductService {
 
   update(product: IProduct2): Observable<any> {
     return this.http.patch(`${environment.db_url}/products/${product.id}.json`, product);
+  }
+
+  setType(type: string): void {
+    this.type = type;
   }
 }

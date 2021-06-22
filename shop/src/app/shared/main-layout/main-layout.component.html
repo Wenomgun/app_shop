@@ -4,16 +4,16 @@
   </h2>
   <ul>
     <li routerLinkActive="active">
-      <a href="#">Phone</a>
+      <a (click)="setType('phone')">Phone</a>
     </li>
     <li routerLinkActive="active">
-      <a href="#">Tablet</a>
+      <a (click)="setType('table')">Tablet</a>
     </li>
     <li routerLinkActive="active">
-      <a href="#">Laptop</a>
+      <a (click)="setType('laptop')">Laptop</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['/basket']">Basket</a>
+      <a [routerLink]="['/basket']" (click)="setType('basket')">Basket</a>
     </li>
   </ul>
 </nav>

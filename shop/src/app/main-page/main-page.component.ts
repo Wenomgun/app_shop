@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class MainPageComponent implements OnInit {
   products$: Observable<any> | undefined;
-  constructor(private prodService: ProductService) {
+  constructor(public prodService: ProductService) {
     this.products$ = this.prodService.query();
   }
 
