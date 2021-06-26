@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   removeSub: Subscription | undefined;
   productName: string = '';
   constructor(private prodService: ProductService) {
-    this. querySub = this.prodService.query().subscribe((products) => {
+    this.querySub = this.prodService.query().subscribe((products) => {
       this.products = products;
     })
   }

@@ -3,7 +3,7 @@ import {ProductService} from "../shared/product.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {Observable} from "rxjs";
-import {IProduct} from "../shared/const";
+import {IProduct, IProduct2} from "../shared/const";
 
 @Component({
   selector: 'app-product-page',
@@ -11,7 +11,7 @@ import {IProduct} from "../shared/const";
   styleUrls: ['./product-page.component.less']
 })
 export class ProductPageComponent implements OnInit {
-  product$: Observable<IProduct>;
+  product$: Observable<IProduct2>;
   constructor(
     private prodService: ProductService,
     private router: ActivatedRoute) {
@@ -19,6 +19,10 @@ export class ProductPageComponent implements OnInit {
       .pipe(switchMap((params: Params) => {
         return this.prodService.getById(params['id'])
       }))
+  }
+
+  addProduct(product: IProduct2): void {
+    this.prodService.addProductToBasket(product);
   }
 
   ngOnInit(): void {

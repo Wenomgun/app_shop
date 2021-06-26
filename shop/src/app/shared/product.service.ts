@@ -10,6 +10,7 @@ import {map} from "rxjs/operators";
 })
 export class ProductService {
   type: string = 'phone';
+  basketProducts :IProduct2[] = [];
   urlProducts: string = `${environment.db_url}/products.json`;
   constructor(private http: HttpClient) { }
 
@@ -61,5 +62,15 @@ export class ProductService {
 
   setType(type: string): void {
     this.type = type;
+  }
+
+  addProductToBasket(product: IProduct2): void {
+    this.basketProducts.push(product);
+  }
+
+  removeProduct(basketProductId: string): void {
+    this.basketProducts = this.basketProducts.filter((basketProduct) => {
+      return basketProduct.id !== basketProductId;
+    })
   }
 }

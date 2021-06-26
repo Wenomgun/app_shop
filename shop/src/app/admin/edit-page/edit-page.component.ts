@@ -63,12 +63,10 @@ export class EditPageComponent implements OnInit {
       price: values.price,
       date: new Date()
     } as IProduct2).subscribe((res) => {
-      console.log(res);
       this.submitted = false;
       this.router.navigate(['/admin', 'dashboard']);
     }, (error) => {
       this.submitted = false;
-      console.log(error);
     });
   }
 

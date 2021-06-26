@@ -42,7 +42,6 @@ export class LoginPageComponent implements OnInit {
       returnSecureToken: true
     };
     this.auth.login(user).subscribe((res) => {
-      console.log(res);
       this.form.reset();
       this.router.navigate(['/admin', 'dashboard']);
       this.submitted = false;
@@ -51,9 +50,6 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
-  consoleLog(obj: any): void {
-    console.log(obj);
-  }
   ngOnInit(): void {
 
   }

@@ -11,7 +11,7 @@
         </div>
         <div>
           <h2>Цена: {{product.price}}</h2>
-          <button routerLink="/basket" class="btn btn-default">Добавить в корзину</button>
+          <button routerLink="/basket" (click)="addProduct(product)" class="btn btn-default">Добавить в корзину</button>
         </div>
       </div>
 
